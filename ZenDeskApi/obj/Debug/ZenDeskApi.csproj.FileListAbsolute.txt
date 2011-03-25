@@ -9,3 +9,10 @@ C:\Users\ericn\Documents\Visual Studio 2010\Projects\ZenDeskApi\Output\ZenDeskAp
 C:\Users\ericn\Documents\Visual Studio 2010\Projects\ZenDeskApi\ZenDeskApi\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\ericn\Documents\Visual Studio 2010\Projects\ZenDeskApi\ZenDeskApi\obj\Debug\ZenDeskApi.dll
 C:\Users\ericn\Documents\Visual Studio 2010\Projects\ZenDeskApi\ZenDeskApi\obj\Debug\ZenDeskApi.pdb
+D:\zendesk\src\ZendDeskApi\Output\ZenDeskApi.dll
+D:\zendesk\src\ZendDeskApi\Output\ZenDeskApi.pdb
+D:\zendesk\src\ZendDeskApi\ZenDeskApi\obj\Debug\ResolveAssemblyReference.cache
+D:\zendesk\src\ZendDeskApi\ZenDeskApi\obj\Debug\ZenDeskApi.dll
+D:\zendesk\src\ZendDeskApi\ZenDeskApi\obj\Debug\ZenDeskApi.pdb
+D:\zendesk\src\ZendDeskApi\ZenDeskApi\obj\Debug\Decl\ZenDeskApi.dll
+D:\zendesk\src\ZendDeskApi\ZenDeskApi\obj\Debug\Decl\ZenDeskApi.pdb

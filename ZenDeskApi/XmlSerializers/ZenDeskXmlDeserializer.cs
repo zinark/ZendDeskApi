@@ -34,6 +34,13 @@ namespace ZenDeskApi.XmlSerializers
         public string Namespace { get; set; }
         public string DateFormat { get; set; }
 
+        public CultureInfo Culture { get; private set; }
+
+        public ZenDeskXmlDeserializer ()
+        {
+            Culture = CultureInfo.InvariantCulture;
+        }
+
         void ClearAllAttributes(XmlNodeList nodes)
         {
             foreach(XmlNode node in nodes)
@@ -317,9 +324,9 @@ namespace ZenDeskApi.XmlSerializers
 
         private XElement GetElementByName(XElement root, XName name)
         {
-            var lowerName = XName.Get(name.LocalName.ToLower(), name.NamespaceName);
-            var camelName = XName.Get(name.LocalName.ToCamelCase(), name.NamespaceName);
-            var dashName = XName.Get(name.LocalName.AddDashes().ToLower(), name.NamespaceName);
+            var lowerName = XName.Get(name.LocalName.ToLower(Culture), name.NamespaceName);
+            var camelName = XName.Get(name.LocalName.ToCamelCase(Culture), name.NamespaceName);
+            var dashName = XName.Get(name.LocalName.AddDashes().ToLower(Culture), name.NamespaceName);
 
             if (root.Element(name) != null)
             {
@@ -352,7 +359,7 @@ namespace ZenDeskApi.XmlSerializers
                               .FirstOrDefault(d => d.Name.LocalName.RemoveUnderscoresAndDashes() == name.LocalName)
                               ?? root.Descendants()
                               .OrderBy(d => d.Ancestors().Count())
-                              .FirstOrDefault(d => d.Name.LocalName.RemoveUnderscoresAndDashes() == name.LocalName.ToLower());
+                              .FirstOrDefault(d => d.Name.LocalName.RemoveUnderscoresAndDashes() == name.LocalName.ToLower(Culture));
 
             if (element != null)
             {
@@ -363,10 +370,10 @@ namespace ZenDeskApi.XmlSerializers
         }
 
         IEnumerable<XElement> GetDescendentsByName(XElement root, XName name)
-        {            
-            var lowerName = XName.Get(name.LocalName.ToLower(), name.NamespaceName);
-            var camelName = XName.Get(name.LocalName.ToCamelCase(), name.NamespaceName);
-            var dashName = XName.Get(name.LocalName.AddDashes().ToLower(), name.NamespaceName);
+        {
+            var lowerName = XName.Get(name.LocalName.ToLower(Culture), name.NamespaceName);
+            var camelName = XName.Get(name.LocalName.ToCamelCase(Culture), name.NamespaceName);
+            var dashName = XName.Get(name.LocalName.AddDashes().ToLower(Culture), name.NamespaceName);
 
             var descendants = root.Descendants(name);
 
@@ -390,9 +397,9 @@ namespace ZenDeskApi.XmlSerializers
 
         private XAttribute GetAttributeByName(XElement root, XName name)
         {
-            var lowerName = XName.Get(name.LocalName.ToLower(), name.NamespaceName);
-            var camelName = XName.Get(name.LocalName.ToCamelCase(), name.NamespaceName);
-            var dashName = XName.Get(name.LocalName.AddDashes().ToLower(), name.NamespaceName);
+            var lowerName = XName.Get(name.LocalName.ToLower(Culture), name.NamespaceName);
+            var camelName = XName.Get(name.LocalName.ToCamelCase(Culture), name.NamespaceName);
+            var dashName = XName.Get(name.LocalName.AddDashes().ToLower(Culture), name.NamespaceName);
 
             if (root.Attribute(name) != null)
             {
